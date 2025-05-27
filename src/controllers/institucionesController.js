@@ -51,7 +51,7 @@ const institucionesController = {
     },
     createInstitucion: async (req, res) => {
 
-        const { nombre, direccion, telefono, correo, ciudad } = req.body;
+        const { nombre, direccion, telefono, email, ciudad } = req.body;
 
         try {
             const result = await pool.query(`insert into institucion(
@@ -60,7 +60,7 @@ const institucionesController = {
                 telefono, 
                 email, 
                 ciudad)
-                values($1, $2, $3, $4, $5) RETURNING *`, [nombre, direccion, telefono, correo, ciudad]);
+                values($1, $2, $3, $4, $5) RETURNING *`, [nombre, direccion, telefono, email, ciudad]);
                 res.status(201).json({
                     mensaje: 'Institución registrada exitosamente.',
                     institucion: result.rows[0]

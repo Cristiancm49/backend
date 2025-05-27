@@ -7,7 +7,7 @@ const app = express();
 const conectMongo = require('./config/mongo');
 conectMongo();
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://TU-FRONT.vercel.app'],
+  origin: ['http://localhost:5173', 'https://frontend-three-iota-40.vercel.app/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
 app.use(express.json());
